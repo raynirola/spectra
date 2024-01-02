@@ -8,9 +8,10 @@ const packageJson = JSON.parse(readFileSync('./package.json', 'utf8'));
  */
 const manifest = {
   manifest_version: 3,
-  name: packageJson.name,
   version: packageJson.version,
-  description: packageJson.description,
+  default_locale: 'en',
+  name: '__MSG_extensionName__',
+  description: '__MSG_extensionDescription__',
   permissions: ['storage', 'sidePanel'],
   side_panel: {
     default_path: 'src/pages/sidepanel/index.html',

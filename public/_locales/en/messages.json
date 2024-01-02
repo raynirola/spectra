@@ -1,0 +1,10 @@
+{
+  "extensionDescription": {
+    "description": "Extension description",
+    "message": "Chrome extension boilerplate, with React, TypeScript, Vite, Realtime Storage, and more."
+  },
+  "extensionName": {
+    "description": "Extension name",
+    "message": "Spectre"
+  }
+}

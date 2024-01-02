@@ -15,9 +15,7 @@ const publicDir = resolve(rootDir, 'public');
 
 const isDev = process.env.__DEV__ === 'true';
 const isProduction = !isDev;
-
-// ENABLE HMR IN BACKGROUND SCRIPT
-const enableHmrInBackgroundScript = true;
+const enableHmrInBackgroundScript = isDev;
 const cacheInvalidationKeyRef = { current: generateKey() };
 
 export default defineConfig({
@@ -30,9 +28,7 @@ export default defineConfig({
     },
   },
   plugins: [
-    makeManifest({
-      getCacheInvalidationKey,
-    }),
+    makeManifest({ getCacheInvalidationKey }),
     react(),
     customDynamicImport(),
     addHmr({ background: enableHmrInBackgroundScript, view: true }),
@@ -41,8 +37,6 @@ export default defineConfig({
   publicDir,
   build: {
     outDir,
-    /** Can slow down build speed. */
-    // sourcemap: isDev,
     minify: isProduction,
     modulePreload: false,
     reportCompressedSize: isProduction,
